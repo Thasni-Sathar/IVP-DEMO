@@ -1,74 +1,54 @@
-import React, { useState } from "react";
+import React from 'react';
+import { Card, Col, Row, Container } from 'react-bootstrap';
+import SideBar from '../../components/sideBar/sideBar';
 
-//import react pro sidebar components
-import {
-  ProSidebar,
-  Menu,
-  MenuItem,
-  SidebarHeader,
-  SidebarFooter,
-  SidebarContent
-} from "react-pro-sidebar";
+import './tile.css';
 
-//import icons from react icons
-import { FaAviato, FaList, FaRegHeart, FaUserAlt } from "react-icons/fa";
-import {
-  FiHome,
-  FiLogOut,
-  FiArrowLeftCircle,
-  FiArrowRightCircle,
-  FiUsers
-} from "react-icons/fi";
-import { RiPencilLine } from "react-icons/ri";
-import { BiCog } from "react-icons/bi";
+function Tile() {
+    return (
+        <>
+            
+              <SideBar/>
+              <Container>
+                <Row style={{marginLeft:"60px"}}>
+                  <Col md={4} style={{marginTop:"100px"}}>
+                        <Card style={{ marginTop: 20, backgroundColor: "#F9F0F0" }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
+                            <Card.Body >
+                                <Card.Text className='cardTextAbout'>
+                                    Experion Technologies is a 14+ year old IT solutions & services company with a focus on digital technologies. With over 300 customers across 32 countries, Experion uses the power of Mobile, Web, Analytics, Cloud, and Digital technologies to unlock the potential of businesses across verticals.
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
 
-//import sidebar css from react-pro-sidebar module and our custom css
-import "react-pro-sidebar/dist/css/styles.css";
-import "./tile.css";
-import { icons } from "react-icons/lib";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserAlt } from "@fortawesome/free-solid-svg-icons";
+                    <Col md={4}  style={{marginTop:"100px"}}>
+                        <Card style={{ marginTop: 15, backgroundColor: "#F9F0F0" }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
+                            <Card.Body >
+                                <Card.Text className='cardTextAbout'>
+                                    EM-Urgency provides monitoring and handling all events, announcements & holidays occurring throughout the IT services and systems of the Experion Technologies. All the alerts are notified via email. They can respond to the email by clicking on the link provided and share their responses.
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
 
-const Tile = () => {
-  //create initial menuCollapse state using useState hook
-  const [menuCollapse, setMenuCollapse] = useState(false);
-
-  //create a custom function that will change menucollapse state from false to true and true to false
-  const menuIconClick = () => {
-    //condition checking to change state from true to false and vice versa
-    menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
-  };
-
-  return (
-    <>
-      <div id="header">
-        {/* collapsed props to change menu size using menucollapse state */}
-        <ProSidebar collapsed={menuCollapse}>
-          <SidebarHeader>
-            <div className="logotext">
-              {/* small and big change using menucollapse state */}
-              <p>{menuCollapse ? <FontAwesomeIcon icon={faUserAlt}  /> :"Thasni Sathar"}</p>
-            </div>
-            <div className="closemenu" onClick={menuIconClick}>
-              {/* changing menu collapse icon on click */}
-              {menuCollapse ? <FiArrowRightCircle /> : <FiArrowLeftCircle />}
-            </div>
-          </SidebarHeader>
-          <SidebarContent>
-            <Menu iconShape="square">
-              <MenuItem active={true} icon={<FiHome />}>
-                Home
-              </MenuItem>
-              <MenuItem icon={<FaList />}>Question</MenuItem>
-              <MenuItem icon={<FaRegHeart />}>Interview</MenuItem>
-              <MenuItem icon={<RiPencilLine />}>Interview Schedule</MenuItem>
-              <MenuItem icon={<FiLogOut />}>Signout</MenuItem>
-            </Menu>
-          </SidebarContent>
-        </ProSidebar>
-      </div>
-    </>
-  );
-};
+                    <Col md={4}  style={{marginTop:"100px"}} >
+                        <Card style={{ marginTop: 15, backgroundColor: "#F9F0F0" }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
+                            <Card.Body >
+                                <Card.Text className='cardTextAbout'>
+                                    We focus on serving the Enterprise, ISV, and Startup segments across the Retail, Transportation, Healthcare, Financial services domains. Headquartered in Trivandrum, India. We have offices around the globe including the United States, United Kingdom, Switzerland,  Australia etc...
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                </Row>
+                </Container>
+          
+            <br></br>
+        </>
+    );
+}
 
 export default Tile;
